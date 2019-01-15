@@ -14,11 +14,14 @@ public class PortalScript : MonoBehaviour {
     private Squishy _squish;
     private Transform _sprite;
 
+    private SavePosition _save;
+
 	// Use this for initialization
 	void Start () {
         _rotationSpeed = _speed;
         _sprite = transform.Find("Sprite");
         _squish = _sprite.GetComponent<Squishy>();
+        _save = GameObject.FindGameObjectWithTag("Player").GetComponent<SavePosition>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +34,10 @@ public class PortalScript : MonoBehaviour {
             {
             //go to link
             Application.OpenURL(_link);
+            if (_save.transform.position.x > 15)
+                {
+                _save.Save();
+                }
             _colliding = false;
             _rotationSpeed = _speed;
             }

@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
     private Transform _sprite;
     private FaceScript _face;
     private DialogueScript _dialogue;
+    private SavePosition _save;
 
     private Vector3 _velocity = Vector3.zero;
     private Vector3 _inputMovement;
@@ -30,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Start()
         {
+        Time.timeScale = 1;
 
         //attach components
         _char = GetComponent<CharacterController>();
@@ -39,9 +41,18 @@ public class PlayerScript : MonoBehaviour {
         _face = _sprite.Find("Face").GetComponent<FaceScript>();
         _dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<DialogueScript>();
         _faceStartPos = _face.transform.localPosition;
+        _save = GetComponent<SavePosition>();
 
         //set init vars
         _startPosSprite = _sprite.localPosition;
+
+        float savedPos = _save.Load();
+        if (savedPos != 0)
+            {
+            Vector3 newPos = transform.position;
+            newPos.x = savedPos;
+            transform.position = newPos;
+            }
         }
 
     private void Update()

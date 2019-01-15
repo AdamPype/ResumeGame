@@ -1798,6 +1798,7 @@ GameObject:
   - component: {fileID: 733409529}
   - component: {fileID: 733409531}
   - component: {fileID: 733409532}
+  - component: {fileID: 733409533}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1855,6 +1856,17 @@ MonoBehaviour:
   _bobFrequency: 0.35
   _bobAmplitude: 0.05
   _bobAngle: 2
+--- !u!114 &733409533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 733409528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808fec1070828b547b1f9dff6f422f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &772837863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8e0ffa3027f97cc40973331fc9ce3f4c,
@@ -3378,7 +3390,7 @@ Prefab:
     - target: {fileID: 114353217507335052, guid: f5013af7edb7f654380e56a048641d53,
         type: 2}
       propertyPath: _text.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4540335406515804, guid: f5013af7edb7f654380e56a048641d53, type: 2}
       propertyPath: m_LocalPosition.x
