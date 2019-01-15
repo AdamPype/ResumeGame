@@ -8,12 +8,10 @@ public class DialogueTriggerScript : MonoBehaviour {
     [SerializeField, TextArea] private string[] _text;
     [SerializeField] private TextAlignment _alignment;
     private DialogueScript _dialogue;
-    private CameraScript _cam;
 
 	// Use this for initialization
 	void Start () {
         _dialogue = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<DialogueScript>();
-        _cam = Camera.main.GetComponent<CameraScript>();
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +19,6 @@ public class DialogueTriggerScript : MonoBehaviour {
         if (other.CompareTag("Player"))
             {
             _dialogue.Say(_text, false, _alignment);
-            _cam.FocusPlayer();
             if (_onlyOnce) Destroy(gameObject);
             }
         }
